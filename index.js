@@ -1,7 +1,12 @@
 const express = require('express')
+var bodyParser = require('body-parser');
+
 const app = express()
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+
 app.all('/', (req, res) => {
-    res.send('Server is running, thanks!')
+    res.send('Server is running, thanks again!')
 })
 
 app.post('/postdata', function(req, res) {
